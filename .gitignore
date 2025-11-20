@@ -1,0 +1,29 @@
+.venv/
+venv/
+env/
+*.pyc
+__pycache__/
+.DS_Store
+.idea/
+.vscode/
+
+# Local environment secrets
+.env
+.env.local
+
+# Build artifacts / caches
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Data cache / embeddings
+backend/data/*.faiss
+backend/data/*.npy
+backend/data/faiss.index
+
+# Logs
+*.log
+
+
