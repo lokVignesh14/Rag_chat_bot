@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>KR Power Chatbot</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+<style>
+#krp-chat-btn{position:fixed;right:20px;bottom:20px;border-radius:999px;padding:14px 18px;box-shadow:0 8px 24px rgba(0,0,0,.2);cursor:pointer;z-index:9999}
+#krp-chat-panel{position:fixed;right:20px;bottom:80px;width:360px;max-width:95vw;height:520px;background:#fff;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.25);display:none;flex-direction:column;overflow:hidden;z-index:9999}
+#chat-stream{padding:12px;overflow:auto;height:100%}
+#chat-input{display:flex;gap:8px;padding:10px;border-top:1px solid #eee}
+.bubble{background:#f5f7fb;border-radius:12px;padding:10px;margin:8px 0}
+.bubble.me{background:#e7f3ff}
+.images{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.images img{width:100%;border-radius:10px;border:1px solid #eee}
+.mic{border:1px solid #ddd;border-radius:8px;padding:6px 10px}
+</style>
+</head>
+<body>
+<button id="krp-chat-btn">Chat with KR Power</button>
+<div id="krp-chat-panel">
+  <div id="chat-stream"></div>
+  <div id="chat-input">
+    <input id="q" type="text" placeholder="Ask about cable trays, panels, solar..."/>
+    <button id="mic" class="mic">🎙️</button>
+    <button id="send">Send</button>
+  </div>
+</div>
+<script src="./widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic==2.*
+requests
+beautifulsoup4
+trafilatura
+lxml
+sentence-transformers
+faiss-cpu
+numpy
+openai==1.*
+httpx
+aiofiles
+python-multipart
+faster-whisper
+langdetect
+jinja2
+twilio
+
+requests
+beautifulsoup4
+trafilatura
+lxml
+# sentence-transformers
+# faiss-cpu
+# numpy
+
+fastapi
+uvicorn
+requests
+streamlit
+pillow
+langdetect
+twilio
+
+deep-translator
+gTTS
