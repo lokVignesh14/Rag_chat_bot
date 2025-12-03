@@ -55,6 +55,14 @@ with st.sidebar:
     ]
     target_lang = st.selectbox("Translate bot replies to:", langs, index=0)
 
+    # API Key Management Button
+    st.divider()
+    st.subheader("🔑 API Management")
+    api_key_url = f"{BACKEND}/api-keys"
+    # Use markdown with target="_blank" to open in new tab
+    st.markdown(f'<a href="{api_key_url}" target="_blank"><button style="background-color: #0066cc; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer; width: 100%;">🔑 Manage API Keys</button></a>', unsafe_allow_html=True)
+    st.caption("Generate and manage API keys for the chatbot API")
+    
     # Contact / Lead form appears after 3 user turns
     st.divider()
     if st.session_state.msg_count >= 3:
