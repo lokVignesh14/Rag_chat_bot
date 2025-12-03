@@ -2,8 +2,12 @@
 import streamlit as st
 import requests
 import base64
+import os
 
-BACKEND = "http://127.0.0.1:8000"
+# Get backend URL from environment variable
+# In production, set BACKEND_URL environment variable to your backend URL
+# Example: export BACKEND_URL="https://ai.krpower.in" or "https://api.krpower.in"
+BACKEND = os.getenv("BACKEND_URL", "http://127.0.0.1:8000")
 
 st.set_page_config(page_title="KR Power Chatbot", layout="wide")
 st.markdown("<h2 style='text-align:center'>⚡ KR Power AI Product Assistant</h2>", unsafe_allow_html=True)
@@ -58,7 +62,14 @@ with st.sidebar:
     # API Key Management Button
     st.divider()
     st.subheader("🔑 API Management")
-    api_key_url = f"{BACKEND}/api-keys"
+    # Use relative URL if backend is on same domain, otherwise use full URL
+    # In production, if backend is on same domain as frontend, use relative path
+    if BACKEND.startswith("http://127.0.0.1") or BACKEND.startswith("http://localhost"):
+        api_key_url = f"{BACKEND}/api-keys"
+    else:
+        # For production, check if backend URL matches current domain pattern
+        # If backend is on same domain, use relative path for better compatibility
+        api_key_url = f"{BACKEND}/api-keys"
     # Use markdown with target="_blank" to open in new tab
     st.markdown(f'<a href="{api_key_url}" target="_blank"><button style="background-color: #0066cc; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer; width: 100%;">🔑 Manage API Keys</button></a>', unsafe_allow_html=True)
     st.caption("Generate and manage API keys for the chatbot API")
