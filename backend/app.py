@@ -2,11 +2,14 @@
 import os, io, json, tempfile
 from datetime import datetime
 from collections import defaultdict
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
+from pathlib import Path
 
-from fastapi import FastAPI, Request, UploadFile, File
+from fastapi import FastAPI, Request, UploadFile, File, Header, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, FileResponse
+from fastapi.responses import JSONResponse, FileResponse, HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from dotenv import load_dotenv, find_dotenv
 import requests
 
@@ -15,8 +18,12 @@ from .llm import generate_reply, generate_reply_from_website
 from .mailer import send_lead_email
 from .messenger import send_whatsapp_alert
 from .speech import transcribe
-from .models import LeadIn
+from .models import LeadIn, ApiKeyCreate, ApiKeyResponse, ApiKeyListResponse
 from .utils import clean_user_text, detect_language
+from .api_keys import (
+    generate_api_key, validate_api_key, list_api_keys, 
+    revoke_api_key, delete_api_key, reactivate_api_key
+)
 
 # Optional Translation
 try:
@@ -66,9 +73,103 @@ def now_utc():
     return datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
 
 
+# -------------------- API Key Authentication --------------------
+security = HTTPBearer(auto_error=False)
+
+async def verify_api_key(
+    authorization: Optional[HTTPAuthorizationCredentials] = Depends(security),
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key")
+):
+    """
+    Verify API key from either Authorization Bearer token or X-API-Key header.
+    """
+    api_key = None
+    
+    # Try Bearer token first
+    if authorization and authorization.credentials:
+        api_key = authorization.credentials
+    # Fallback to X-API-Key header
+    elif x_api_key:
+        api_key = x_api_key
+    
+    if not api_key:
+        raise HTTPException(
+            status_code=401,
+            detail="API key required. Provide it via 'Authorization: Bearer <key>' header or 'X-API-Key' header."
+        )
+    
+    key_info = validate_api_key(api_key)
+    if not key_info:
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid or inactive API key."
+        )
+    
+    return key_info
+
+
+# -------------------- API KEY MANAGEMENT ENDPOINTS --------------------
+@app.post("/api/keys/generate", response_model=ApiKeyResponse)
+async def create_api_key(payload: ApiKeyCreate):
+    """Generate a new API key."""
+    try:
+        result = generate_api_key(
+            name=payload.name or "Default",
+            description=payload.description or ""
+        )
+        return ApiKeyResponse(**result)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to generate API key: {e}")
+
+
+@app.get("/api/keys", response_model=ApiKeyListResponse)
+async def get_api_keys():
+    """List all API keys (metadata only, keys are not exposed)."""
+    try:
+        keys = list_api_keys()
+        return ApiKeyListResponse(keys=keys)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to list API keys: {e}")
+
+
+@app.post("/api/keys/{key_id}/revoke")
+async def revoke_key(key_id: str):
+    """Revoke (deactivate) an API key."""
+    if revoke_api_key(key_id):
+        return {"status": "revoked", "key_id": key_id}
+    raise HTTPException(status_code=404, detail="API key not found")
+
+
+@app.post("/api/keys/{key_id}/reactivate")
+async def reactivate_key(key_id: str):
+    """Reactivate a revoked API key."""
+    if reactivate_api_key(key_id):
+        return {"status": "reactivated", "key_id": key_id}
+    raise HTTPException(status_code=404, detail="API key not found")
+
+
+@app.delete("/api/keys/{key_id}")
+async def remove_key(key_id: str):
+    """Permanently delete an API key."""
+    if delete_api_key(key_id):
+        return {"status": "deleted", "key_id": key_id}
+    raise HTTPException(status_code=404, detail="API key not found")
+
+
+# -------------------- API KEY MANAGEMENT PAGE --------------------
+@app.get("/api-keys", response_class=HTMLResponse)
+async def api_keys_page():
+    """Serve the API key management HTML page."""
+    html_path = Path(__file__).parent.parent / "web" / "api_keys.html"
+    if html_path.exists():
+        with open(html_path, "r", encoding="utf-8") as f:
+            return f.read()
+    raise HTTPException(status_code=404, detail="API keys page not found")
+
+
 # -------------------- Speech-to-Text --------------------
 @app.post("/stt")
-async def stt(file: UploadFile = File(...)):
+async def stt(file: UploadFile = File(...), key_info: Dict = Depends(verify_api_key)):
     try:
         suffix = os.path.splitext(file.filename or ".webm")[-1]
         with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
@@ -84,7 +185,7 @@ async def stt(file: UploadFile = File(...)):
 
 # -------------------- Text-to-Speech --------------------
 @app.post("/tts")
-async def tts(payload: dict):
+async def tts(payload: dict, key_info: Dict = Depends(verify_api_key)):
     try:
         text = (payload or {}).get("text", "").strip()
         lang = (payload or {}).get("lang", "en")
@@ -107,7 +208,7 @@ async def tts(payload: dict):
 
 # -------------------- MAIN CHAT LOGIC --------------------
 @app.post("/chat")
-async def chat(payload: dict):
+async def chat(payload: dict, key_info: Dict = Depends(verify_api_key)):
     try:
         user_text = clean_user_text((payload or {}).get("message", ""))
         session_id = (payload or {}).get("session_id", "web")
@@ -235,7 +336,7 @@ async def chat(payload: dict):
 
 # -------------------- LEAD FORM SUBMIT --------------------
 @app.post("/lead")
-async def lead(req: Request, payload: LeadIn):
+async def lead(req: Request, payload: LeadIn, key_info: Dict = Depends(verify_api_key)):
     try:
         ip = req.headers.get("x-forwarded-for", req.client.host if req.client else None)
         session_id = getattr(payload, "session_id", "web")

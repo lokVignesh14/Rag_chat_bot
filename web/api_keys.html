@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>KR Power API Key Management</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            /* Dark theme colors matching Streamlit */
+            --bg-primary: #0e1117;
+            --bg-secondary: #262730;
+            --bg-tertiary: #1e1e1e;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --text-muted: #9ca3af;
+            --border-color: #3a3a3a;
+            --border-light: #4a4a4a;
+            
+            /* Accent colors */
+            --primary: #1f77b4;
+            --primary-hover: #2a8fd4;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --info: #17a2b8;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        
+         /* Cards */
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Forms */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: inherit;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover:not(:disabled) {
+            background: var(--primary-hover);
+        }
+        
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+        
+        .btn-success:hover:not(:disabled) {
+            background: #218838;
+        }
+        
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+        
+        .btn-danger:hover:not(:disabled) {
+            background: #c82333;
+        }
+        
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .btn-secondary:hover:not(:disabled) {
+            background: var(--bg-primary);
+            border-color: var(--border-light);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        /* API Key Display */
+        .api-key-display {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            position: relative;
+        }
+        
+        .api-key-display .copy-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .api-key-text {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin: 0.5rem 0;
+            padding-right: 120px;
+        }
+        
+        /* Key List Items */
+        .key-item {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: var(--bg-tertiary);
+            transition: border-color 0.2s;
+        }
+        
+        .key-item:hover {
+            border-color: var(--border-light);
+        }
+        
+        .key-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 1rem;
+        }
+        
+        .key-info {
+            flex: 1;
+        }
+        
+        .key-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .key-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .key-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .key-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+        
+        .key-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Status Badges */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .status-active {
+            background: rgba(40, 167, 69, 0.2);
+            color: var(--success);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+        }
+        
+        .status-inactive {
+            background: rgba(220, 53, 69, 0.2);
+            color: var(--danger);
+            border: 1px solid rgba(220, 53, 69, 0.3);
+        }
+        
+        /* Alerts */
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-left: 4px solid;
+        }
+        
+        .alert-success {
+            background: rgba(40, 167, 69, 0.1);
+            color: var(--success);
+            border-left-color: var(--success);
+        }
+        
+        .alert-error {
+            background: rgba(220, 53, 69, 0.1);
+            color: var(--danger);
+            border-left-color: var(--danger);
+        }
+        
+        .alert-warning {
+            background: rgba(255, 193, 7, 0.1);
+            color: var(--warning);
+            border-left-color: var(--warning);
+        }
+        
+        .alert-info {
+            background: rgba(23, 162, 184, 0.1);
+            color: var(--info);
+            border-left-color: var(--info);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        /* Search Box */
+        .search-box {
+            margin-bottom: 1.5rem;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+        
+         /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+        }
+        
+        /* Info Box */
+        .info-box {
+            background: rgba(23, 162, 184, 0.1);
+            border-left: 4px solid var(--info);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            color: var(--text-secondary);
+        }
+        
+        .info-box code {
+            background: var(--bg-tertiary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: var(--text-primary);
+        }
+        
+         /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+             .header h1 {
+                 font-size: 2rem;
+             }
+             
+             .card {
+                padding: 1.5rem;
+            }
+            
+            .key-item-header {
+                flex-direction: column;
+            }
+            
+            .key-actions {
+                width: 100%;
+                margin-top: 1rem;
+            }
+            
+            .key-actions button {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔑 KR Power API Key Management</h1>
+            <p>Generate and manage your API keys for the KR Power Chatbot API</p>
+        </div>
+
+        <div id="alerts"></div>
+
+        <!-- Generate New API Key -->
+        <div class="card">
+            <h2>Generate New API Key</h2>
+            <div class="info-box">
+                <strong>Tip:</strong> Give your API key a descriptive name to easily identify its purpose. You'll only see the full key once after generation!
+            </div>
+            <form id="generate-form">
+                <div class="form-group">
+                    <label for="key-name">Key Name *</label>
+                    <input type="text" id="key-name" placeholder="e.g., Production API, Development Key, Mobile App" required>
+                </div>
+                <div class="form-group">
+                    <label for="key-description">Description (Optional)</label>
+                    <textarea id="key-description" rows="3" placeholder="Describe what this API key will be used for"></textarea>
+                </div>
+                <button type="submit" id="generate-btn" class="btn btn-primary">
+                    🔑 Generate API Key
+                </button>
+            </form>
+            
+            <div id="new-key-result" class="hidden">
+                <div class="alert alert-warning">
+                    <span>⚠️</span>
+                    <div>
+                        <strong>IMPORTANT:</strong> Save this API key now! You won't be able to see it again after closing this page.
+                    </div>
+                </div>
+                <div class="api-key-display">
+                    <button class="copy-btn btn btn-primary" onclick="copyToClipboard('new-api-key')">
+                        📋 Copy Key
+                    </button>
+                    <div style="margin-bottom: 0.5rem; font-weight: 600; color: var(--text-secondary);">Your API Key:</div>
+                    <div id="new-api-key" class="api-key-text"></div>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color); font-size: 0.875rem; color: var(--text-muted);">
+                        <div><strong>Key ID:</strong> <span id="new-key-id"></span></div>
+                        <div style="margin-top: 0.5rem;"><strong>Created:</strong> <span id="new-key-created"></span></div>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <strong>Quick Start:</strong> Use this API key in your requests by adding it to the <code>Authorization: Bearer YOUR_API_KEY</code> header or <code>X-API-Key</code> header.
+                </div>
+            </div>
+        </div>
+
+        <!-- API Keys List -->
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                <h2 style="margin: 0;">Your API Keys</h2>
+                <button onclick="loadKeys()" id="refresh-btn" class="btn btn-secondary">
+                    🔄 Refresh
+                </button>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="🔍 Search keys by name, description, or key ID..." oninput="filterKeys()">
+            </div>
+
+            <div id="keys-list">
+                <div class="empty-state">
+                    <div>Loading...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get base URL
+        const baseURL = window.location.origin;
+
+        let allKeys = [];
+
+        // Show alert
+        function showAlert(message, type = 'success') {
+            const alertsDiv = document.getElementById('alerts');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            const icon = type === 'success' ? '✅' : type === 'error' ? '❌' : type === 'warning' ? '⚠️' : 'ℹ️';
+            alert.innerHTML = `<span>${icon}</span><div>${message}</div>`;
+            alertsDiv.appendChild(alert);
+            setTimeout(() => {
+                alert.style.opacity = '0';
+                alert.style.transition = 'opacity 0.3s';
+                setTimeout(() => alert.remove(), 300);
+            }, 5000);
+        }
+
+        // Copy to clipboard
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).textContent.trim();
+            navigator.clipboard.writeText(text).then(() => {
+                showAlert('API key copied to clipboard!', 'success');
+            }).catch(() => {
+                showAlert('Failed to copy to clipboard', 'error');
+            });
+        }
+
+
+        // Filter keys
+        function filterKeys() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const filtered = allKeys.filter(key => 
+                (key.name || '').toLowerCase().includes(searchTerm) ||
+                (key.description || '').toLowerCase().includes(searchTerm) ||
+                (key.key_id || '').toLowerCase().includes(searchTerm)
+            );
+            displayKeys(filtered);
+        }
+
+        // Display keys
+        function displayKeys(keys) {
+            const listDiv = document.getElementById('keys-list');
+            
+            if (keys.length === 0) {
+                listDiv.innerHTML = `
+                    <div class="empty-state">
+                        <div>🔍 No keys found matching your search.</div>
+                    </div>
+                `;
+                return;
+            }
+
+            listDiv.innerHTML = keys.map(key => `
+                <div class="key-item">
+                    <div class="key-item-header">
+                        <div class="key-info">
+                            <div class="key-name">${key.name || 'Unnamed Key'}</div>
+                            ${key.description ? `<div class="key-description">${key.description}</div>` : ''}
+                            <div class="key-meta">
+                                <span class="status-badge ${key.is_active ? 'status-active' : 'status-inactive'}">
+                                    ${key.is_active ? '✓ Active' : '✗ Inactive'}
+                                </span>
+                                <span class="key-meta-item">
+                                    📅 Created: ${new Date(key.created_at).toLocaleString()}
+                                </span>
+                                ${key.last_used ? `
+                                    <span class="key-meta-item">
+                                        🕒 Last used: ${new Date(key.last_used).toLocaleString()}
+                                    </span>
+                                ` : '<span class="key-meta-item">🕒 Never used</span>'}
+                                <span class="key-meta-item">
+                                    📊 Usage: ${(key.usage_count || 0).toLocaleString()} calls
+                                </span>
+                            </div>
+                            <div style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-muted); font-family: monospace;">
+                                Key ID: ${key.key_id}
+                            </div>
+                        </div>
+                        <div class="key-actions">
+                            ${key.is_active 
+                                ? `<button onclick="revokeKey('${key.key_id}')" class="btn btn-danger">Revoke</button>`
+                                : `<button onclick="reactivateKey('${key.key_id}')" class="btn btn-success">Reactivate</button>`
+                            }
+                            <button onclick="deleteKey('${key.key_id}')" class="btn btn-secondary">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Generate API key
+        document.getElementById('generate-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('generate-btn');
+            btn.disabled = true;
+            btn.textContent = '⏳ Generating...';
+
+            try {
+                const response = await fetch(`${baseURL}/api/keys/generate`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: document.getElementById('key-name').value,
+                        description: document.getElementById('key-description').value
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    document.getElementById('new-api-key').textContent = data.api_key;
+                    document.getElementById('new-key-id').textContent = data.key_id;
+                    document.getElementById('new-key-created').textContent = new Date(data.created_at).toLocaleString();
+                    document.getElementById('new-key-result').classList.remove('hidden');
+                    document.getElementById('generate-form').reset();
+                    showAlert('API key generated successfully!', 'success');
+                    loadKeys();
+                    document.getElementById('new-key-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    showAlert(data.detail || 'Failed to generate API key', 'error');
+                }
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '🔑 Generate API Key';
+            }
+        });
+
+        // Load API keys list
+        async function loadKeys() {
+            const listDiv = document.getElementById('keys-list');
+            listDiv.innerHTML = '<div class="empty-state"><div>Loading...</div></div>';
+
+            try {
+                const response = await fetch(`${baseURL}/api/keys`);
+                const data = await response.json();
+                
+                if (response.ok && data.keys) {
+                    allKeys = data.keys;
+                    displayKeys(allKeys);
+                } else {
+                    listDiv.innerHTML = '<div class="empty-state"><div>No API keys found. Generate one above to get started.</div></div>';
+                }
+            } catch (error) {
+                listDiv.innerHTML = `<div class="empty-state"><div style="color: var(--danger);">Error loading keys: ${error.message}</div></div>`;
+            }
+        }
+
+        // Revoke key
+        async function revokeKey(keyId) {
+            if (!confirm('Are you sure you want to revoke this API key? It will no longer work for API requests.')) return;
+            
+            try {
+                const response = await fetch(`${baseURL}/api/keys/${keyId}/revoke`, {
+                    method: 'POST'
+                });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showAlert('API key revoked successfully', 'success');
+                    loadKeys();
+                } else {
+                    showAlert(data.detail || 'Failed to revoke key', 'error');
+                }
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
+            }
+        }
+
+        // Reactivate key
+        async function reactivateKey(keyId) {
+            try {
+                const response = await fetch(`${baseURL}/api/keys/${keyId}/reactivate`, {
+                    method: 'POST'
+                });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showAlert('API key reactivated successfully', 'success');
+                    loadKeys();
+                } else {
+                    showAlert(data.detail || 'Failed to reactivate key', 'error');
+                }
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
+            }
+        }
+
+        // Delete key
+        async function deleteKey(keyId) {
+            if (!confirm('⚠️ Are you sure you want to permanently delete this API key?\n\nThis action cannot be undone and the key will stop working immediately.')) return;
+            
+            try {
+                const response = await fetch(`${baseURL}/api/keys/${keyId}`, {
+                    method: 'DELETE'
+                });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showAlert('API key deleted successfully', 'success');
+                    loadKeys();
+                } else {
+                    showAlert(data.detail || 'Failed to delete key', 'error');
+                }
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
+            }
+        }
+
+        // Load keys on page load
+        loadKeys();
+    </script>
+</body>
+</html>
