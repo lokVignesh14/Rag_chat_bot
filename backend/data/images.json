@@ -1,132 +1,123 @@
 {
   "https://www.krpower.in": [
-    "https://www.krpower.in/wp-content/uploads/2020/06/slide2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2020/06/slide4.jpg",
-    "https://www.krpower.in/wp-content/uploads/2020/06/slide3.jpg",
-    "https://www.krpower.in/wp-content/uploads/2020/06/slide1.jpg",
-    "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xMS40MzMgMTUuOTkyTDIyLjY5IDUuNzEyYy4zOTMtLjM5LjM5My0xLjAzIDAtMS40Mi0uMzkzLS4zOS0xLjAzLS4zOS0xLjQyMyAwbC0xMS45OCAxMC45NGMtLjIxLjIxLS4zLjQ5LS4yODUuNzYtLjAxNS4yOC4wNzUuNTYuMjg0Ljc3bDExLjk4IDEwLjk0Yy4zOTMuMzkgMS4wMy4zOSAxLjQyNCAwIC4zOTMtLjQuMzkzLTEuMDMgMC0xLjQybC0xMS4yNTctMTAuMjkiCiAgICAgICAgICBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjgiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4=",
-    "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xMC43MjIgNC4yOTNjLS4zOTQtLjM5LTEuMDMyLS4zOS0xLjQyNyAwLS4zOTMuMzktLjM5MyAxLjAzIDAgMS40MmwxMS4yODMgMTAuMjgtMTEuMjgzIDEwLjI5Yy0uMzkzLjM5LS4zOTMgMS4wMiAwIDEuNDIuMzk1LjM5IDEuMDMzLjM5IDEuNDI3IDBsMTIuMDA3LTEwLjk0Yy4yMS0uMjEuMy0uNDkuMjg0LS43Ny4wMTQtLjI3LS4wNzYtLjU1LS4yODYtLjc2TDEwLjcyIDQuMjkzeiIKICAgICAgICAgIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOCIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPg==",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Cable-Trays-300x80.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Panels-Bus-Ducts.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Accessories.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/projects.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Satisfied-customers.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Suppliers.png",
-    "https://www.krpower.in/wp-content/uploads/2020/06/25-years.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/1-4.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/2-3.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/3-3.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/4-3.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/5-3.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/6-3.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/8-3.png"
+    "https://www.krpower.in/images/bg/bg-image-4.png",
+    "https://www.krpower.in/images/about/about7.webp",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_t4uh4vt4uh4vt4uh-1764739966858-288423321.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_441o2h441o2h441o-1764743733528-335253650.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_u4rk64u4rk64u4rk-1764744989333-882980355.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_6146y96146y96146-1764746389054-195009597.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_bpfzr2bpfzr2bpfz-1764747495669-424006032.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_6s5dal6s5dal6s5d-1764748144479-699928023.png",
+    "https://www.krpower.in/images/about/about-1.png",
+    "https://www.krpower.in/images/testimonial/testimonial-01.png",
+    "https://www.krpower.in/images/testimonial/testimonial-02.png",
+    "https://www.krpower.in/images/testimonial/testimonial-03.png",
+    "https://www.krpower.in/images/about/years3.png",
+    "https://www.krpower.in/images/blog/blog-01.jpg",
+    "https://www.krpower.in/images/about/contact-image.png"
+  ],
+  "https://www.krpower.in/products/": [
+    "https://www.krpower.in/uploads/product/gemini_generated_image_t4uh4vt4uh4vt4uh-1764739966858-288423321.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_441o2h441o2h441o-1764743733528-335253650.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_u4rk64u4rk64u4rk-1764744989333-882980355.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_6146y96146y96146-1764746389054-195009597.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_bpfzr2bpfzr2bpfz-1764747495669-424006032.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_6s5dal6s5dal6s5d-1764748144479-699928023.png"
   ],
   "https://www.krpower.in/about-us/": [
-    "https://www.krpower.in/wp-content/uploads/2019/04/abt.jpg",
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/845271105.png"
-  ],
-  "https://www.krpower.in/contact-us/": [
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/1630687761.png"
-  ],
-  "https://www.krpower.in/gallery/": [
-    "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22220%22%20height%3D%22220%22%20viewBox%3D%220%200%20220%20220%22%3E%3C%2Fsvg%3E",
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/61161010.png"
+    "https://www.krpower.in/about-us/images/about/about9.jpg",
+    "https://www.krpower.in/about-us/images/about/about8.png"
   ],
   "https://www.krpower.in/": [
-    "https://www.krpower.in/wp-content/uploads/2020/06/slide2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2020/06/slide4.jpg",
-    "https://www.krpower.in/wp-content/uploads/2020/06/slide3.jpg",
-    "https://www.krpower.in/wp-content/uploads/2020/06/slide1.jpg",
-    "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xMS40MzMgMTUuOTkyTDIyLjY5IDUuNzEyYy4zOTMtLjM5LjM5My0xLjAzIDAtMS40Mi0uMzkzLS4zOS0xLjAzLS4zOS0xLjQyMyAwbC0xMS45OCAxMC45NGMtLjIxLjIxLS4zLjQ5LS4yODUuNzYtLjAxNS4yOC4wNzUuNTYuMjg0Ljc3bDExLjk4IDEwLjk0Yy4zOTMuMzkgMS4wMy4zOSAxLjQyNCAwIC4zOTMtLjQuMzkzLTEuMDMgMC0xLjQybC0xMS4yNTctMTAuMjkiCiAgICAgICAgICBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjgiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4=",
-    "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xMC43MjIgNC4yOTNjLS4zOTQtLjM5LTEuMDMyLS4zOS0xLjQyNyAwLS4zOTMuMzktLjM5MyAxLjAzIDAgMS40MmwxMS4yODMgMTAuMjgtMTEuMjgzIDEwLjI5Yy0uMzkzLjM5LS4zOTMgMS4wMiAwIDEuNDIuMzk1LjM5IDEuMDMzLjM5IDEuNDI3IDBsMTIuMDA3LTEwLjk0Yy4yMS0uMjEuMy0uNDkuMjg0LS43Ny4wMTQtLjI3LS4wNzYtLjU1LS4yODYtLjc2TDEwLjcyIDQuMjkzeiIKICAgICAgICAgIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOCIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPg==",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Cable-Trays-300x80.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Panels-Bus-Ducts.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Accessories.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/projects.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Satisfied-customers.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Suppliers.png",
-    "https://www.krpower.in/wp-content/uploads/2020/06/25-years.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/1-4.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/2-3.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/3-3.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/4-3.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/5-3.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/6-3.png",
-    "https://www.krpower.in/wp-content/uploads/2019/04/8-3.png"
+    "https://www.krpower.in/images/bg/bg-image-4.png",
+    "https://www.krpower.in/images/about/about7.webp",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_t4uh4vt4uh4vt4uh-1764739966858-288423321.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_441o2h441o2h441o-1764743733528-335253650.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_u4rk64u4rk64u4rk-1764744989333-882980355.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_6146y96146y96146-1764746389054-195009597.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_bpfzr2bpfzr2bpfz-1764747495669-424006032.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_6s5dal6s5dal6s5d-1764748144479-699928023.png",
+    "https://www.krpower.in/images/about/about-1.png",
+    "https://www.krpower.in/images/testimonial/testimonial-01.png",
+    "https://www.krpower.in/images/testimonial/testimonial-02.png",
+    "https://www.krpower.in/images/testimonial/testimonial-03.png",
+    "https://www.krpower.in/images/about/years3.png",
+    "https://www.krpower.in/images/blog/blog-01.jpg",
+    "https://www.krpower.in/images/about/contact-image.png"
   ],
-  "https://www.krpower.in/cable-trays-manufacturer/": [
-    "https://www.krpower.in/wp-content/uploads/2019/04/Perforated.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Ladder-Cable-Tray.jpg",
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/1463381672.png"
+  "https://www.krpower.in/about-us": [
+    "https://www.krpower.in/images/about/about9.jpg",
+    "https://www.krpower.in/images/about/about8.png"
   ],
-  "https://www.krpower.in/panels-bus-ducts-manufacturer/": [
-    "https://www.krpower.in/wp-content/uploads/2019/04/1-2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/4-2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/2-2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/5-2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/3-2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/6-2.jpg",
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/3823178240.png"
+  "https://www.krpower.in/career": [
+    "https://www.krpower.in/images/portfolio/kr.png",
+    "https://www.krpower.in/uploads/blog/p13-1764659135144-18659708.png",
+    "https://www.krpower.in/uploads/blog/p8-1764659309244-738157606.png"
   ],
-  "https://www.krpower.in/solar-structures-manufacturer/": [
-    "https://www.krpower.in/wp-content/uploads/2019/04/5-1.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/6-1.jpg",
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/4237775425.png"
+  "https://www.krpower.in/blog": [
+    "https://www.krpower.in/images/blog/blog-01.jpg"
   ],
-  "https://www.krpower.in/accessories-manufacturer/": [
-    "https://www.krpower.in/wp-content/uploads/2019/04/1.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/4.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/7.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/5.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/8.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/3.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/6.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/9.jpg",
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/2405062819.png"
+  "https://www.krpower.in/products": [
+    "https://www.krpower.in/uploads/product/gemini_generated_image_t4uh4vt4uh4vt4uh-1764739966858-288423321.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_441o2h441o2h441o-1764743733528-335253650.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_u4rk64u4rk64u4rk-1764744989333-882980355.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_6146y96146y96146-1764746389054-195009597.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_bpfzr2bpfzr2bpfz-1764747495669-424006032.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_6s5dal6s5dal6s5d-1764748144479-699928023.png"
   ],
-  "https://www.krpower.in/clients/": [
-    "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22215%22%20height%3D%22160%22%20viewBox%3D%220%200%20215%20160%22%3E%3C%2Fsvg%3E",
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/2729702921.png"
+  "https://www.krpower.in/product-nodes/upvc-reinforcement": [
+    "https://www.krpower.in/uploads/product/gemini_generated_image_9fzdb19fzdb19fzd-1764739918199-154691975.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_j85f6zj85f6zj85f-1764741865425-685255862.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_s65pmas65pmas65p-1764742076479-511363174.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_mza5uemza5uemza5-1764742406248-254118530.png"
   ],
-  "https://www.krpower.in/career/": [
-    "https://www.krpower.in/wp-content/uploads/2020/06/career.jpg",
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/62420906.png",
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/2393028.png"
+  "https://www.krpower.in/product-nodes/panel-boards": [
+    "https://www.krpower.in/uploads/product/gemini_generated_image_bohsl6bohsl6bohs-1764743705537-278211140.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_pdi7hkpdi7hkpdi7-1764743907998-96216409.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_of0bmxof0bmxof0b-1764744020582-53839065.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_2l0i8h2l0i8h2l0i-1764744137979-900731826.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_skahhaskahhaskah-1764744321367-952623043.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_m3ccacm3ccacm3cc-1764744446065-881554218.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_ey9bm2ey9bm2ey9b-1764744553369-341164175.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_v0zcsov0zcsov0zc-1764744671349-362106487.png"
   ],
-  "https://www.krpower.in/panels-bus-ducts/": [
-    "https://www.krpower.in/wp-content/uploads/2019/04/1-2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/4-2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/2-2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/5-2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/3-2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/6-2.jpg",
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/2471973786.png"
+  "https://www.krpower.in/product-nodes/earthing-system": [
+    "https://www.krpower.in/uploads/product/gemini_generated_image_mbkikjmbkikjmbki-1764744959780-357404657.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_x0gg1sx0gg1sx0gg-1764745115650-785685310.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_h5i61hh5i61hh5i6-1764745263741-102979612.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_x1r1y6x1r1y6x1r1-1764745388726-508792384.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_3kvkra3kvkra3kvk-1764745583234-965862649.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_ho2qpcho2qpcho2q-1764745732829-444867786.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_2opdzp2opdzp2opd-1764745851433-160948713.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_cas619cas619cas6-1764745982659-73621423.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_ytp8q4ytp8q4ytp8-1764746086325-918378346.png"
   ],
-  "https://www.krpower.in/accessories/": [
-    "https://www.krpower.in/wp-content/uploads/2019/04/1.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/4.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/7.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/2.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/5.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/8.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/3.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/6.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/9.jpg",
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/3507807716.png"
+  "https://www.krpower.in/product-nodes/all-types-of-clamps": [
+    "https://www.krpower.in/uploads/product/gemini_generated_image_oiiyzuoiiyzuoiiy-1764746363555-507977882.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_57ih0857ih0857ih-1764746501435-29489736.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_jpenwejpenwejpen-1764746610470-133866222.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_6il8xw6il8xw6il8-1764746726020-834767330.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_ahtppdahtppdahtp-1764746838844-302348993.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_4n4xxs4n4xxs4n4x-1764746949135-963091973.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_szu75aszu75aszu7-1764747142355-115950202.png"
   ],
-  "https://www.krpower.in/perforated-cable-trays/": [
-    "https://www.krpower.in/wp-content/uploads/2019/04/Peforated_Cable-Tray.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Perforated_Cable3.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Perforated-Cable-tray-covers.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Perforated-Inward-Bend-Staight.jpg",
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/441142273.png"
+  "https://www.krpower.in/product-nodes/solar-structures": [
+    "https://www.krpower.in/uploads/product/gemini_generated_image_p8wc8ap8wc8ap8wc-1764747327085-132778840.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_njze2onjze2onjze-1764747458875-437131318.png"
   ],
-  "https://www.krpower.in/ladder-cable-trays/": [
-    "https://www.krpower.in/wp-content/uploads/2019/04/Ladder-Sraight-Cable-Trays.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Powder-Coated-Ladder-Tray.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Hot-Dip-Ladder-Tray.jpg",
-    "https://www.krpower.in/wp-content/uploads/2019/04/Bolted-Ladder-Tray.jpg",
-    "https://www.krpower.in/wp-content/uploads/wpcf7_captcha/3079968661.png"
+  "https://www.krpower.in/product-nodes/flats": [
+    "https://www.krpower.in/uploads/product/gemini_generated_image_cvpptmcvpptmcvpp-1764747619899-81996812.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_ajhu49ajhu49ajhu-1764747759588-371245669.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_2t8e732t8e732t8e-1764747893008-284787283.png",
+    "https://www.krpower.in/uploads/product/gemini_generated_image_r21n00r21n00r21n-1764748019113-83468655.png"
+  ],
+  "https://www.krpower.in/product-nodes/cable-tray-systems": [
+    "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg==",
+    "https://www.krpower.in/uploads/product/p1-1764670326042-349077305.png",
+    "https://www.krpower.in/uploads/product/p14-1764670380319-810524556.png",
+    "https://www.krpower.in/uploads/product/p16-1764670426109-704963459.png"
+  ],
+  "https://www.krpower.in/blog-details/blog-1": [
+    "https://www.krpower.in/images/blog/blog-01.jpg"
   ]
 }
