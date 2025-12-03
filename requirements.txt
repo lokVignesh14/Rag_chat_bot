@@ -37,3 +37,5 @@ twilio
 
 deep-translator
 gTTS
+selenium
+webdriver-manager
