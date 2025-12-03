@@ -12,16 +12,35 @@ PAGES_PATH = os.path.join(BASE_DIR, "data", "pages.json")
 with open(DATA_PATH, "r", encoding="utf-8") as f:
     PRODUCTS = json.load(f)
 
-# Load image map
-with open(IMAGES_PATH, "r", encoding="utf-8") as f:
-    IMAGES_DB = json.load(f)
+# Load image map - will be reloaded when needed
+IMAGES_DB = {}
 
-# Load website pages
-try:
-    with open(PAGES_PATH, "r", encoding="utf-8") as f:
-        WEBSITE_PAGES = json.load(f)
-except FileNotFoundError:
-    WEBSITE_PAGES = []
+def _reload_images_db():
+    """Reload images database from JSON file."""
+    global IMAGES_DB
+    try:
+        with open(IMAGES_PATH, "r", encoding="utf-8") as f:
+            IMAGES_DB = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        IMAGES_DB = {}
+
+# Initial load
+_reload_images_db()
+
+# Load website pages - will be reloaded on each search
+WEBSITE_PAGES = []
+
+def _reload_website_pages():
+    """Reload website pages from JSON file."""
+    global WEBSITE_PAGES
+    try:
+        with open(PAGES_PATH, "r", encoding="utf-8") as f:
+            WEBSITE_PAGES = json.load(f)
+    except FileNotFoundError:
+        WEBSITE_PAGES = []
+
+# Initial load
+_reload_website_pages()
 
 
 def _normalize(text: str) -> str:
@@ -90,6 +109,9 @@ def search(query: str, k: int = 5):
 
 
 def images_for_query(query: str, k: int = 12):
+    # Reload images to get latest data
+    _reload_images_db()
+    
     q = query.lower()
     imgs = []
 
@@ -136,13 +158,21 @@ def _tokenize_text(text: str) -> set:
 
 
 PAGE_INDEX = []
-for page in WEBSITE_PAGES:
-    PAGE_INDEX.append({
-        "page": page,
-        "title_tokens": _tokenize_text(page.get("title", "")),
-        "content_tokens": _tokenize_text(page.get("content", "")),
-        "url_tokens": _tokenize_text(page.get("url", "")),
-    })
+
+def _build_page_index():
+    """Build search index from website pages."""
+    global PAGE_INDEX
+    PAGE_INDEX = []
+    for page in WEBSITE_PAGES:
+        PAGE_INDEX.append({
+            "page": page,
+            "title_tokens": _tokenize_text(page.get("title", "")),
+            "content_tokens": _tokenize_text(page.get("content", "")),
+            "url_tokens": _tokenize_text(page.get("url", "")),
+        })
+
+# Initial index build
+_build_page_index()
 
 
 STOP_WORDS = {
@@ -154,6 +184,12 @@ STOP_WORDS = {
 
 def search_website(query: str, k: int = 5):
     """Search website pages for relevant content."""
+    # Reload pages to get latest data
+    _reload_website_pages()
+    
+    # Rebuild index with latest pages
+    _build_page_index()
+    
     if not PAGE_INDEX:
         return []
 

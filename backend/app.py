@@ -77,11 +77,13 @@ def now_utc():
 security = HTTPBearer(auto_error=False)
 
 async def verify_api_key(
+    request: Request,
     authorization: Optional[HTTPAuthorizationCredentials] = Depends(security),
     x_api_key: Optional[str] = Header(None, alias="X-API-Key")
 ):
     """
     Verify API key from either Authorization Bearer token or X-API-Key header.
+    Allows bypass for localhost requests (for web interface).
     """
     api_key = None
     
@@ -91,6 +93,17 @@ async def verify_api_key(
     # Fallback to X-API-Key header
     elif x_api_key:
         api_key = x_api_key
+    
+    # Allow bypass for localhost requests (web interface)
+    client_host = request.client.host if request.client else None
+    if not api_key and client_host in ("127.0.0.1", "localhost", "::1"):
+        # Return a default key info for localhost requests
+        return {
+            "key_id": "localhost",
+            "name": "Local Web Interface",
+            "is_active": True,
+            "usage_count": 0
+        }
     
     if not api_key:
         raise HTTPException(
